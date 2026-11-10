@@ -10,7 +10,7 @@ test('UI Basics - First Practice', async ({ page }) => {
     await page.getByPlaceholder('enter your passsword').fill(password);
     await page.getByRole('button', { name: 'Login' }).click();
 
-    // Using waitForLoadState('networkidle') to ensure that the page has finished loading and all network requests have completed before proceeding with further actions. This is important to avoid interacting with elements that may not be fully rendered or available on the page yet.
+    // Using waitForLoadState('networkidle') to ensure that the page has finished loading and all network requests have completed before proceeding with further actions. This is important to avoid interacting with elements that may not be fully rendered or available on the page yet. Better to use waitFor() when loading a new page, but in this case we are waiting for the network to be idle after the login action, which is a common practice to ensure that the page is fully loaded before performing assertions or interacting with elements.
     await page.waitForLoadState('networkidle'); 
     const cards = page.locator('.card-body');
     const firstCard = cards.nth(0);
