@@ -69,7 +69,7 @@ test('Basic UI Elements - Buttons and Attributes', async ({page}) => {
 
 // Switching between child windows and tabs is a common scenario in web applications. In this test, we demonstrate how to handle multiple windows or tabs using Playwright's context and page management features. The test navigates to a login page, performs actions that open a new window or tab, and switches between them to perform assertions on their content.
 // Instead of using the `page` object directly, we create a new page using `browser.newPage()` to simulate opening a new window or tab. This allows us to interact with the newly opened page and perform assertions on its content, ensuring that the application behaves as expected when multiple windows or tabs are involved.
-test.only('Child windows and Tabs', async ({browser}) => {
+test('Child windows and Tabs', async ({browser}) => {
     const context = await browser.newContext();
     const page = await  context.newPage();
     const url = 'https://rahulshettyacademy.com/loginpagePractise/';
